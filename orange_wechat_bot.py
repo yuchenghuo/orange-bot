@@ -1,14 +1,15 @@
+import asyncio
 import json
 import os
-import asyncio
 import random
-from dotenv import load_dotenv
 from datetime import date, timedelta
-from typing import List, Optional, Union
+from typing import Optional, Union
+
+from dotenv import load_dotenv
 from requests import request
-from wechaty_puppet import FileBox  # type: ignore
 from wechaty import Wechaty, Contact
 from wechaty.user import Message, Room
+from wechaty_puppet import FileBox  # type: ignore
 
 load_dotenv()
 wallets = {
