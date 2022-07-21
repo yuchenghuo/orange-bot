@@ -1,6 +1,14 @@
 # Orange Wechat Bot
 An Wechat group chat bot for entertainment, etc.
 
+## Features
+
+* Auto reply to messages sent by users in the group.
+* Track members who check-in daily to the group and reward in coins and relationship.
+* Tarot, Zhuge, Zhouyi, and other fortune-telling methods.
+* Remind users of their following Bilibili streamers status.
+* Add your own features.
+
 ## Prerequisites
 * [Python 3.7+](https://www.python.org/downloads/)
 * [Salmon Cross API](https://www.salmoncross.xyz/)
