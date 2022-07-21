@@ -44,6 +44,8 @@ class OrangeBot(Wechaty):
 
     async def heartbeat(self):
         while True:
+            # Load the wechat_id of the bot account itself,
+            # modify the following line to fit your own bot
             contact = self.Contact.load('wxid_gnb3cyngpude12')
             await contact.say('🍊')
             time.sleep(30)
