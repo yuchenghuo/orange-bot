@@ -2,7 +2,6 @@ import asyncio
 import json
 import os
 import random
-import threading
 import time
 from datetime import date, timedelta
 from typing import Optional, Union
@@ -11,7 +10,7 @@ from dotenv import load_dotenv
 from requests import request
 from wechaty import Wechaty, Contact
 from wechaty.user import Message, Room
-from wechaty_puppet import FileBox, EventHeartbeatPayload  # type: ignore
+from wechaty_puppet import FileBox, EventReadyPayload  # type: ignore
 
 load_dotenv()
 wallets = {
@@ -42,6 +41,15 @@ zodiacs = {'白羊座', '金牛座', '双子座', '巨蟹座', '狮子座', '处
 
 
 class OrangeBot(Wechaty):
+
+    async def heartbeat(self):
+        while True:
+            contact = self.Contact.load('wxid_gnb3cyngpude12')
+            await contact.say('🍊')
+            time.sleep(30)
+
+    async def on_ready(self, payload: EventReadyPayload) -> None:
+        asyncio.create_task(self.heartbeat())
 
     async def on_message(self, msg: Message):
         """
@@ -236,5 +244,5 @@ os.environ['WECHATY_PUPPET_SERVICE_ENDPOINT'] = "127.0.0.1:9001"
 # bot.use(
 #     EventHeartbeatPayload,
 # )
-asyncio.run(OrangeBot().start())
-
+bot = OrangeBot()
+asyncio.run(bot.start())
