@@ -240,9 +240,5 @@ class OrangeBot(Wechaty):
 
 os.environ['TOKEN'] = os.getenv("UUID_TOKEN")
 os.environ['WECHATY_PUPPET_SERVICE_ENDPOINT'] = "127.0.0.1:9001"
-# bot = OrangeBot()
-# bot.use(
-#     EventHeartbeatPayload,
-# )
 bot = OrangeBot()
 asyncio.run(bot.start())
